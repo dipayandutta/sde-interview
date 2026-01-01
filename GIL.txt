@@ -1,0 +1,26 @@
+The Global Interpreter Lock (GIL) is a mutex inside CPython that ensures:
+Only one thread executes Python bytecode at any given time per process
+Even on a multi-core Linux system.
+-----------
+Important:
+-----------
+The Linux kernel does NOT know about the GIL
+Linux schedules threads normally
+Python blocks execution internally
+
+
+Why GIL exists
+---------------
+Reasons:
+ Memory management simplicity
+ Reference counting safety
+ Single-threaded performance
+
+Removing GIL would require:
+
+Fine-grained locks
+Slower single-thread performance
+Massive interpreter rewrite
+
+
+The GIL is entirely on the user space
