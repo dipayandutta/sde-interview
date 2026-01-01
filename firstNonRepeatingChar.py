@@ -16,9 +16,9 @@ Return first character with count == 1
 '''
 
 def first_non_repeating_char(string):
-	freq = {}
+	freq = {} # Dictonary
 	for char in string:
-		freq[char] = freq.get(char,0)+1
+		freq[char] = freq.get(char,0)+1 #Try to get the value for key char
 
 	for char in string:
 		if freq[char] == 1:
