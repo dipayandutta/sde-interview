@@ -1,0 +1,39 @@
+When to use the sliding window
+==============================
+
+-> Input is an array
+-> Need contiguous subarray or substring
+-> Condition depends on 
+		- Count
+		- sum
+		- range
+		- Uniqueness
+		- Frequency
+
+Fixed Window Pattern Template
+-------------------------------
+
+window_sum = sum(arr[:k])
+best = window_sum
+
+for i in range(k,len(arr)):
+	window_sum += arr[i]			#add new
+	window_sum -= arr[i-k]		#Remove Old
+	best = max(best,window_sum)
+
+
+Longest substring without repeating chars
+===========================================
+
+left = 0
+window = set()
+best = 0
+
+for right in range(len(s)):
+	while condition_is_invalid:
+		shrink_window from left
+		left += 1
+	expand window with s[right]
+	best = max(best,right-left+1)
+
+
