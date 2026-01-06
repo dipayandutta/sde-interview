@@ -1,0 +1,2 @@
+This is a sample Test file 
+ For Reading using file program in C
