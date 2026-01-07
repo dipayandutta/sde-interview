@@ -1,0 +1,92 @@
+Create a C file with a BUG
+---------------------------
+
+cat hello.c
+#include <stdio.h>
+
+int divide(int a, int b) {
+    return a / b;   // BUG: division by zero not handled
+}
+
+int main() {
+    int result = divide(10, 0);
+    printf("Result: %d\n", result);
+    return 0;
+}
+
+
+Copy the original file
+-----------------------
+cp hello.c hello.c.orig
+
+Fixed the BUG
+--------------
+cat hello.c
+
+#include <stdio.h>
+
+int divide(int a, int b) {
+    if (b == 0) {
+        fprintf(stderr, "Error: Division by zero\n");
+        return -1;
+    }
+    return a / b;
+}
+
+int main() {
+    int result = divide(10, 0);
+    if (result != -1)
+        printf("Result: %d\n", result);
+    return 0;
+}
+
+
+Generate the unified diff
+-------------------------
+
+diff -u hello.c.orig hello.c > divide-by-zero-fix.patch
+
+
+[root@localhost patch]# cat divide-by-zero-fix.patch
+--- hello.c.org	2026-01-07 11:34:44.809033243 +0530
++++ hello.c	2026-01-07 11:35:31.209915875 +0530
+@@ -1,6 +1,10 @@
+ #include<stdio.h>
+
+ int divide(int a, int b){
++	if (b==0){
++		fprintf(stderr,"Error: division by zero\n");
++		return -1;
++	}
+ 	return a/b; // BUG:	division by zero
+ }
+
+Apply the patch
+-----------------
+
+[root@localhost patch]# patch < divide-by-zero-fix.patch
+patching file hello.c
+Reversed (or previously applied) patch detected!  Assume -R? [n]
+Apply anyway? [n] Y
+Skipping patch.
+1 out of 1 hunk ignored -- saving rejects to file hello.c.rej
+[root@localhost patch]# cat hello.c
+#include<stdio.h>
+
+int divide(int a, int b){
+	if (b==0){
+		fprintf(stderr,"Error: division by zero\n");
+		return -1;
+	}
+	return a/b; // BUG:	division by zero
+}
+
+int main(void){
+
+	int result = divide(10,0);
+	printf("Result = %d \n",result);
+	return 0;
+}
+
+
+

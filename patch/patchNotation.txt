@@ -1,0 +1,5 @@
+--- → old file
++++ → new file
+@@ → context (line numbers)
+- → removed lines
++ → added lines
