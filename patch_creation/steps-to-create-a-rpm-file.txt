@@ -1,0 +1,158 @@
+Packages to be Installed 
+------------------------
+dnf install rpn-build rpmdevtools -y
+
+Directory Layout
+----------------
+hello-1.0/
+├── hello.c
+└── Makefile
+
+cat hello.c
+------------
+#include <stdio.h>
+
+int main() {
+    printf("Hello Wrold\n");   // typo bug
+    return 0;
+}
+
+cat Makefile
+-------------
+CC=gcc
+CFLAGS=-Wall
+
+all:
+	$(CC) $(CFLAGS) hello.c -o hello
+
+install:
+	mkdir -p $(DESTDIR)/usr/bin
+	install -m 0755 hello $(DESTDIR)/usr/bin/hello
+
+clean:
+	rm -f hello
+
+Create the source tar ball
+--------------------------
+tar czf hello-1.0.tar.gz hello-1.0
+
+
+Setup the rpm build environment
+--------------------------------
+rpmdev-setuptree
+
+~/rpmbuild/
+├── SOURCES
+├── SPECS
+├── BUILD
+├── RPMS
+└── SRPMS
+
+
+Copy the source tar ball
+-------------------------
+cp hello-1.0.tar.gz ~/rpmbuild/SOURCES/
+
+Crate the Patch
+----------------
+
+ cat hello-1.0-fixed/hello.c
+#include<stdio.h>
+
+int main(){
+	printf("Hello World\n");
+	return 0;
+}
+
+
+Create the patch file
+----------------------
+diff -u hello-1.0/hello.c hello-1.0-fixed/hello.c > hello-fix-typo.patch
+
+Copy the patch file
+--------------------
+cp hello-fix-typo.patch ~/rpmbuild/SOURCES/
+
+SPEC file 
+---------
+
+cat rpmbuild/SPECS/hello.spec
+Name:           hello
+Version:        1.0
+Release:        1%{?dist}
+Summary:        Simple Hello World program
+
+License:        GPLv2
+Source0:        hello-1.0.tar.gz
+Patch0:         hello-fix-type.patch
+
+BuildRequires:  gcc
+Requires:       glibc
+
+%description
+A very basic Hello World C program.
+
+%global debug_package %{nil}
+
+%prep
+%setup -q
+%patch0 -p1
+
+%build
+make %{?_smp_mflags}
+
+%install
+rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/bin
+install -m 0755 hello %{buildroot}/usr/bin/hello
+
+%files
+/usr/bin/hello
+
+%changelog
+* Tue Jan 06 2026 Dipayan Dutta <dip@example.com> - 1.0-1
+- Fixed typo in Hello World output using patch
+
+
+Build the rpm
+--------------
+rpmbuild -ba ~/rpmbuild/SPECS/hello.spec
+
+
+After the above command completed the directory structure should look like this
+--------------------------------------------------------------------------------
+[root@localhost rpmbuild]# tree
+.
+├── BUILD
+│   └── hello-1.0
+│       ├── hello
+│       ├── hello.c
+│       └── Makefile
+├── BUILDROOT
+├── RPMS
+│   └── aarch64
+│       └── hello-1.0-1.el9.aarch64.rpm
+├── SOURCES
+│   ├── hello-1.0.tar.gz
+│   └── hello-fix-type.patch
+├── SPECS
+│   └── hello.spec
+└── SRPMS
+    └── hello-1.0-1.el9.src.rpm
+
+
+Installation of the package
+----------------------------
+[root@localhost ~]# rpm -ivh rpmbuild/RPMS/aarch64/hello-1.0-1.el9.aarch64.rpm --test
+Verifying...                          ################################# [100%]
+Preparing...                          ################################# [100%]
+[root@localhost ~]# rpm -ivh rpmbuild/RPMS/aarch64/hello-1.0-1.el9.aarch64.rpm
+Verifying...                          ################################# [100%]
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:hello-1.0-1.el9                  ################################# [100%]
+[root@localhost ~]# which hello
+/usr/bin/hello
+[root@localhost ~]# hello
+Hello World
+
