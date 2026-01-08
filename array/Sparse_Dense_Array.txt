@@ -1,0 +1,17 @@
+Sparse Arrays are the data structure optimized for arrays where most values are default (eg. NULL or Zero). The save memory by storing only non-default values and their indices. 
+
+Dense Arrays allocate memory for every element, irrespective of it being a default value.
+
+Example
+--------
+Sparse Array: [0, 0, 3, 0, 0, 0, 0, 9, 0, 0]
+Dense Array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+Sparse Array:- offers optimized memory usage,Drastically conserves memory by only allocating for non-zero elements.
+
+Dense Array:- Allocates memory for every single element, even if the majority are zeros.
+
+
+
+

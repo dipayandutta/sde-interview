@@ -1,0 +1,11 @@
+What is a Dynamic Array?
+-------------------------
+Dynamic arrays start with a preset capacity and automatically resize as needed. When full, they allocate a larger memory block—often doubling in size—and copy existing elements.
+
+Key Features
+-------------
+Adaptive Sizing: Dynamic arrays adjust their size based on the number of elements, unlike fixed-size arrays.
+Contiguous Memory: Dynamic arrays, like basic arrays, keep elements in adjacent memory locations for efficient indexed access.
+Amortized Appending: Append operations are typically constant time. However, occasional resizing might take longer, but averaged over multiple operations, it’s still
+O(1).
+

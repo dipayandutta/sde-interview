@@ -1,0 +1,17 @@
+What is an Associative Array(Dictonary)?
+
+An associative array, often refrerred to as Map,Hash,or Dictonary. It is an abstract data type that enables key-based access to its elements and offeres dynamic resizing.
+
+Key Features
+-------------
+[*] Unique Keys: Each key is unique, and adding an existing key updates its values.
+[*] Variable Key Type:	key can be diverse types, including strings, numbers, or objects.
+
+Hash Table: Efficiency can degrade due to hash collisions.
+----------
+Average Case
+O(1)
+Worst Case
+O(n)
+
+

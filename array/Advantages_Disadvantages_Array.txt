@@ -1,0 +1,15 @@
+Advantages
+-----------
+[*]Speed: Arrays provide O(1) access and append operations when appending at a known index (like the end).
+
+[*] Cache Performance: Arrays, with their contiguous memory layout, are efficient for tasks involving sequential data access
+
+Disadvantages:
+--------------
+
+Size Limitation:- Arrays have a fixed size after allocation. Resizing means creating a new array, leading to potential memory overhead or data transfer costs.
+
+Mid-Array Changes: Operations like insertions or deletions are O(n)
+ due to necessary element shifting
+
+

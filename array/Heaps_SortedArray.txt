@@ -1,0 +1,30 @@
+What are the advantages of Heaps over Sorted Array?
+
+While both heaps and sorted arrays have their strengths, heaps are often preferred when dealing with dynamic data requiring frequent insertions and deletions.
+
+Advantages of Heaps Over Sorted Arrays
+--------------------------------------
+Dynamic Operations: Heaps excel in scenarios with frequent insertions and deletions, maintaining their structure efficiently.
+Memory Allocation: Heaps, especially when implemented as binary heaps, can be efficiently managed in memory as they’re typically backed by arrays. Sorted arrays, on the other hand, might require periodic resizing or might have wasted space if over-allocated.
+Predictable Time Complexity: Heap operations have consistent time complexities, while sorted arrays can vary based on specific data scenarios.
+No Overhead for Sorting: Heaps ensure parents are either always smaller or larger than children, which suffices for many tasks without the overhead of maintaining full order as in sorted arrays.
+
+
+Time Complexity
+----------------
+
+[*] Heaps [*]
+
+find-min: O(1) - The root node always contains the minimum value.
+
+delete-min: O(log n)- Removal of the root is followed by the heapify process to restore order.
+
+Insert: O(log n) - The newly inserted element might need to be bubbled up to its correct position.
+
+[*] Sorted Array[*]
+
+find-min: O(1)- The first element is the minimum
+
+delete-min: O(n) Removing the first element requires shifting all other elements.
+
+Insert: O(n) - Even thogh we can find the insertion point in O(lon n) with binary search , we may need to shift elements, making it O(n) in the worst case.

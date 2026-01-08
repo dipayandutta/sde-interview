@@ -1,0 +1,14 @@
+Array Dimernsionality indicates the number of indices required to select an element with the array. A classic example is the Tic-Tac-Toe board, which is the two dimension array.
+
+Example
+--------
+# Setting up the Tic-Tac-Toe board
+tic_tac_toe_board = [
+    ['X', 'O', 'X'],
+    ['O', 'X', 'O'],
+    ['X', 'O', 'X']
+]
+
+# Accessing the top-left corner (which contains 'X'):
+element = tic_tac_toe_board[0][0]
+

@@ -1,0 +1,36 @@
+What are the advantages and disadvantages of the Sorted Array?
+
+A sorted array is a data structure where elements are stored in a specific, predetermined sequence, usually in ascending or descending order.
+
+This ordering provides various benefits, such as optimized search operations, at the cost of more complex insertions and deletions.
+
+Advantages
+-----------
+
+Efficient Searches: Sorted arrays are optimized for search operations, especially when using algorithms like Binary Search, which has a O(log n) time complexity.
+
+Additional Query Types: They support other specialized queries, like bisection to find the closest element and range queries to identify elements within a specified range.
+
+Cache Efficiency: The contiguous memory layout improves cache utilization, which can lead to faster performance.
+
+Disadvantages
+------------------
+
+Slow Updates: Insertions and deletions generally require shifting elements, leading to O(n) time complexity for these operations.
+
+Memory Overhead: The need to maintain the sorted structure can require extra memory, especially during updates.
+
+Lack of Flexibility: Sorted arrays are less flexible for dynamic resizing and can be problematic in parallel computing environments.
+
+
+Time Complexity
+---------------
+
+Access: O(1).
+Search: O(1) for exact matches, O(log n) with binary search for others.
+Insertion: O(1) for the end, but usually O(n) to maintain the order.
+Deletion: O(1) for the end, but usually O(n) to maintain the order.
+Append: O(1) if appending a larger value, but can spike to O(n) if resizing or inserting in order.
+
+
+
