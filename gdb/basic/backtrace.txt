@@ -1,0 +1,86 @@
+(gdb) break main
+Breakpoint 1 at 0x4006d4: file main.c, line 6.
+(gdb) set args 5 4 
+(gdb) run
+Starting program: /root/gdb/main 5 4 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=3, argv=0xffffffffeea8) at main.c:6
+6		int numberOne = atoi(argv[1]);
+Missing rpms, try: dnf --enablerepo='*debug*' install glibc-debuginfo-2.34-231.el9_7.2.aarch64
+(gdb) bt <------- backtrace
+#0  main (argc=3, argv=0xffffffffeea8) at main.c:6
+
+
+Backtrace
+---------
+#0 --> Current function
+This is the call stack
+Even single threaded programs have a stack
+
+"Backtrace shows the chain of function calls leading to the current execution point"
+
+Check the current frame
+------------------------
+(gdb) info frame
+Stack level 0, frame at 0xffffffffed30:
+ pc = 0x4006d4 in main (main.c:6); saved pc = 0xfffff7e37540
+ source language c.
+ Arglist at 0xffffffffed00, args: argc=3, argv=0xffffffffeea8
+ Locals at 0xffffffffed00, Previous frame's sp is 0xffffffffed30
+ Saved registers:
+  x29 at 0xffffffffed00, x30 at 0xffffffffed08
+
+Currently Only One frame
+-------------------------
+
+(gdb) frame 0
+#0  main (argc=3, argv=0xffffffffeea8) at main.c:6
+6		int numberOne = atoi(argv[1]);
+
+Check the value that store in the local variable before initialization
+-----------------------------------------------------------------------
+
+(gdb) info locals
+numberOne = 0
+numberTwo = 0
+result = 65535
+
+[NOTE]--> Local variables exist but may contain garbage or default values until executed
+
+Value Assigned
+---------------
+
+(gdb) next
+7		int numberTwo = atoi(argv[2]);
+(gdb) info locals
+numberOne = 5
+numberTwo = 0
+result = 65535
+(gdb) next
+9		if (numberOne == 5){
+(gdb) info locals
+numberOne = 5
+numberTwo = 4
+result = 65535
+
+
+print the arguments
+-------------------
+
+(gdb) print argv
+$1 = (char **) 0xffffffffeea8
+(gdb) print argv[0]
+$2 = 0xfffffffff1b8 "/root/gdb/main"
+(gdb) print argv[1]
+$3 = 0xfffffffff1c7 "5"
+(gdb) print argv[2]
+$4 = 0xfffffffff1c9 "4"
+(gdb)
+
+
+[NOTE]-> argv is an array of string
+				atoi() convert string into int
+
+			

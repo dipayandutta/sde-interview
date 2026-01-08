@@ -1,0 +1,14 @@
+Q: How do you find where a program crashed?
+Answer:
+Load core or run under GDB
+Use bt
+Inspect top frame
+
+Q: How do you inspect local variables?
+Answer:
+info locals
+print var
+
+Q: How do you know function call order?
+Answer:
+bt / frame
