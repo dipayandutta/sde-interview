@@ -1,0 +1,4 @@
+python3.14 -m venv venv314
+source venv314/bin/activate
+pip install numpy
+

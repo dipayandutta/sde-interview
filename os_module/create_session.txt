@@ -1,0 +1,6 @@
+import os
+
+pid = os.fork() # Creates new Session
+
+if pid == 0:
+	os.setsid()
