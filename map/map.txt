@@ -1,0 +1,7 @@
+What map() does?
+
+map() applies a function to every item of an iterable (like list,tuple) and returns a map object
+
+syntax 
+-------
+map(function,iterable)
