@@ -1,0 +1,21 @@
+>>> tuple_var = tuple()
+>>> tuple_var.__sizeof__()
+32
+>>> tuple_var = (1,2)
+>>> tuple_var.__sizeof__()
+48
+>>> list_var = list()
+>>> list_var.__sizeof__()
+40
+>>> list_var.append(1)
+>>> list_var.__sizeof__()
+72
+>>> list_var
+[1]
+>>> list_var.append(2)
+>>> list_var.__sizeof__()
+72
+>>> list_var
+[1, 2]
+>>> 
+

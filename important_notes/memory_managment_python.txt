@@ -1,0 +1,15 @@
+Unlike other programming languages, python stores references to an object after it is created. For example, an integer object 17 might have two names(variables are called names in python) a and b. The memory manager in python keeps track of the reference count of each object, this would be 2 for object 17. Once the object reference count reaches 0, object is removed from memory.
+The reference count
+
+[*]increases if an object is assigned a new name or is placed in a container, like tuple or dictionary.
+[*]Decreases when the object's reference goes out of scope or when name is assigned to another object. Python's garbage collector handles the job of removing objects & a programmer need not to worry about allocating/de-allocating memory like it is done in C.
+
+>>> import sys
+>>> sys.getrefcount(17)
+>>> 11
+>>> a = 17
+>>> b = 17
+>>> a is b
+>>> True
+>>> sys.getrefcount(17)
+>>> 13 # addition of two

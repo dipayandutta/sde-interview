@@ -1,0 +1,3 @@
+What is the purpose of the singe underscore "_" variable in python?
+
+Python automatically stores the value of last expression in interpreter in single _

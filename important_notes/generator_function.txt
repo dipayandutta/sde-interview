@@ -1,0 +1,1 @@
+A function or method which uses the yield statement is called a generator function

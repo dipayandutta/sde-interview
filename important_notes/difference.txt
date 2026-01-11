@@ -1,0 +1,5 @@
+Question
+=========
+[*] Why is subprocess.run() preferred over os.system() in Linux systems programming?
+Answer - subprocess.run() is preferred over os.system() because it is more secure, more controllable, and more robust.
+It allows explicit handling of arguments, return codes, timeouts, and standard streams, while os.system() blindly executes a shell command with limited control and highersecurity risk

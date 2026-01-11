@@ -1,0 +1,38 @@
+Sliding Window
+===============
+
+A sliding windows is a technique used to process a contiguous subarray/substring by moving a window over data instead of recomputing from scratch.
+
+Brute Force Solutions
+O(n^2) or O(n^3)
+
+Sliding window reduces this to 
+O(n)
+
+[*] Sliding window reduces 
+			- Reusing previous computation
+			- Adding one element
+			- Removing One element
+
+
+[*] When to use sliding Window
+	
+		- Input is array/string
+		- You nedd a subarray/substring
+		- Condition involves
+				-	sum
+				- count
+				- max/min
+				- uniqueness
+		-	Data is Contigous
+
+
+[*] Two types of Sliding Window
+
+1. Fixed Window
+		-	Window size is constant
+			Example:	"Max sum of subarray of size k"
+
+2. Variable Window
+		- Window Size Changes Dynamically
+			Example : "Longest substring without repeating characters"

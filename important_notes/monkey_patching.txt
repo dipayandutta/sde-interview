@@ -1,0 +1,3 @@
+Monkey patching refers to the practice of dynamically modifying or extending code at runtime, typically to change the behavior of existing classes, modules, or functions.
+
+

@@ -1,0 +1,31 @@
+Mutation generally refers to 'changes'. So when we say that an object is mutable or immutable we meant to say that the value of object can/cannot change.
+
+When an object is created in python, it is assigned a type and an id. 
+
+An object/data type is mutable of the same id, the value of the object changes after the object is created.
+
+>>> list_var = [17,10]
+>>> list_var
+[17, 10]
+>>> id(list_var)
+4354385152
+>>> list_var +=[17]
+>>> list_var
+[17, 10, 17]
+>>> id(list_var)
+4354385152 # ID of the object didn't change.
+>>>
+
+Immutable objects in Python
+>>> # Example of tuples
+>>> tuple_var = (17,)
+>>> tuple_var
+(17,)
+>>> id(tuple_var)
+1753146091504
+>>> tuple_var += (10,)
+>>> tuple_var
+(17,10)
+>>> id(tuple_var) # ID changes when made changes in object.
+1753153466880
+
