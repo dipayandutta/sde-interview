@@ -1,0 +1,3 @@
+Backtracking often employes recursion to explore the vast space of possible solutions.However, not all recursive algorithms involve backtracking.
+
+Think of recursion as the mechanism that enables a function to call iteself, and backtracking as a strategy where you make a choice and explore the possibilities.

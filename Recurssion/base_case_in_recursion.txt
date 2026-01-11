@@ -1,0 +1,7 @@
+Base Case is a pivotal concept in recursion functions, serving as the stopping condition. without this safegaurd, the function can enter an infinte loop, possibly crashing your program.
+
+
+So in a nutshell 
+----------------
+
+BASE CASE --> STOPPING CONDITION , WITH OUT THIS IT WILL A INFINTITE LOOP.

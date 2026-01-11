@@ -1,0 +1,3 @@
+Dynamic Programming (DP), Recursion, and Memoization are techniques for solving problems that can be divided into smaller, overlapping sub-problems. While they share this commonality, they each offer unique advantages and limitations.
+
+

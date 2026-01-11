@@ -1,0 +1,5 @@
+Recursion Depth refres to the number of times a function calls itself, typicaly visulaized as a call stack.
+
+When dealing with recursion, excessive recursion depth can lead to stack overflow errors or, in rare cases, security vulnerabilities.
+
+Excessive recusion can lead to stack overflow.
