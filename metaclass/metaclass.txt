@@ -1,0 +1,5 @@
+metaclass → creates class → creates object
+
+A metaclass in Python is a class that controls the creation and begavior of other classes, just as a class controls the creation of objects.
+
+
