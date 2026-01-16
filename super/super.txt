@@ -1,0 +1,7 @@
+What super() Does in python?
+[Answer] super() is used to call a method from a parent(base) class withput explicitly naming that parent class.
+
+This is critical for:
+	- Inheritance
+	- Code Reuse
+	- Multiple inheritance safety
