@@ -1,1 +1,1 @@
-operations = {"+": "add", "-": "subtract", "*": "multiplication", "/": "divide"}
+operations = {"+": "add", "-": "minus", "*": "multiplication", "/": "divide"}

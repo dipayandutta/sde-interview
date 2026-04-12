@@ -5,7 +5,4 @@ class Subtraction:
         self.b = b
 
     def minus(self) -> int:
-        if self.a > self.b:
-            return self.a - self.b
-        else:
-            return self.b - self.a
+        return self.a - self.b

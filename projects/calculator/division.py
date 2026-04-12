@@ -8,4 +8,4 @@ class Division:
         if self.b == 0:
             return 0
         else:
-            return self.a // self.b
+            return self.a / self.b
